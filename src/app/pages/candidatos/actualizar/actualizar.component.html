@@ -13,8 +13,8 @@
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text" [disabled]="!modoCreacion"
-                        [(ngModel)]="elCandidato.cedula">
-                    <p *ngIf="intentoEnvio && elCandidato.cedula==''">Requerido</p>
+                        [(ngModel)]="elCandidato._id">
+                    <p *ngIf="intentoEnvio && elCandidato._id==''">Requerido</p>
                 </div>
             </div>
             <br>

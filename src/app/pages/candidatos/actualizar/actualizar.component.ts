@@ -5,11 +5,11 @@ import { Candidatos } from '../../../modelos/candidatos.model';
 import { CandidatosService } from '../../../servicios/candidatos.service';
 
 @Component({
-  selector: 'ngx-crear',
-  templateUrl: './crear.component.html',
-  styleUrls: ['./crear.component.scss']
+  selector: 'ngx-actualizar',
+  templateUrl: './actualizar.component.html',
+  styleUrls: ['./actualizar.component.scss']
 })
-export class CrearComponent implements OnInit {
+export class ActualizarComponent implements OnInit {
   modoCreacion: boolean = true;
   cedula: string = "";
   intentoEnvio: boolean = false;
@@ -31,8 +31,8 @@ export class CrearComponent implements OnInit {
       this.modoCreacion = true;
       }
   }
-  getCandidato(cedula: string) {
-    this.miServicioCandidato.getCandidato(cedula).
+  getCandidato(_id: string) {
+    this.miServicioCandidato.getCandidato(_id).
     subscribe(data => {
     this.elCandidato = data;
     });
@@ -54,7 +54,7 @@ export class CrearComponent implements OnInit {
   editar(): void {
     this.intentoEnvio=true;
     if (this.validarDatosCompletos()) {
-      this.miServicioCandidato.editar(this.elCandidato.cedula, this.elCandidato).
+      this.miServicioCandidato.editar(this.elCandidato._id, this.elCandidato).
         subscribe(data => {
           Swal.fire(
             'Actualizado',
