@@ -11,7 +11,7 @@ import { CandidatosService } from '../../../servicios/candidatos.service';
 })
 export class ListarComponent implements OnInit {
   candidatos : Candidatos[];
-  nombresColumnas: string[] = ['Cedula', 'Nombre', 'Apellido','# Resolución', 'Partido'];
+  nombresColumnas: string[] = ['Cedula', 'Nombre', 'Apellido','No Resolución', 'Partido'];
   constructor(private miServicioCandidatos: CandidatosService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,9 +28,9 @@ export class ListarComponent implements OnInit {
   editar(_id:string):void{
     this.router.navigate(["pages/candidatos/actualizar/"+_id]);
   }
-/*   asignar(cedula:string):void{
-    this.router.navigate(["pages/candidatos/asignacion/"+cedula]);
-  } */
+  asignar(_id:string):void{
+    this.router.navigate(["pages/candidatos/asignacion/"+_id]);
+  }
   eliminar(_id:string):void{
     Swal.fire({
       title: 'Eliminar Candidato',
@@ -44,7 +44,7 @@ export class ListarComponent implements OnInit {
       if (result.isConfirmed) {
         this.miServicioCandidatos.eliminar(_id).subscribe(data => {
           Swal.fire(
-            'Emliminado!',
+            'Eliminado!',
             'El candidato ha sido eliminada correctamente',
             'success'
           )

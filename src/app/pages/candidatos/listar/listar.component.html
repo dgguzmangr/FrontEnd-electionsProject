@@ -14,7 +14,7 @@
                 </tr>
                 <ng-container *ngFor="let candidatoActual of candidatos">
                     <tr>
-                        <td>{{candidatoActual._id}}</td>
+                        
                         <td>{{candidatoActual.cedula}}</td>
                         <td>{{candidatoActual.nombre}}</td>
                         <td>{{candidatoActual.apellido}}</td>
@@ -24,9 +24,9 @@
                             <button type="button" class="btn btn-primary" (click)="editar(candidatoActual._id)">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-<!--                             <button type="button" class="btn btn-success" (click)="asignar(candidatoActual.cedula)">
+                            <button type="button" class="btn btn-success" (click)="asignar(candidatoActual._id)">
                                 <i class="fas fa-plus"></i>
-                            </button> -->
+                            </button>
                             <button type="button" class="btn btn-danger" (click)="eliminar(candidatoActual._id)">
                                 <i class="fas fa-solid fa-trash"></i>
                             </button>

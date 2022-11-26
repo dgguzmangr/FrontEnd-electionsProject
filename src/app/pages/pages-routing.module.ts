@@ -5,11 +5,16 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    {
+      path: 'home',
+      component: HomeComponent,
+    },
     {
       path: 'seguridad',
       loadChildren: () => import('./seguridad/seguridad.module')
@@ -19,7 +24,29 @@ const routes: Routes = [{
       path: 'candidatos',
       loadChildren: () => import('./candidatos/candidatos.module')
       .then(m => m.CandidatosModule),
-     },  
+     },
+     {
+      path: "mesas",
+      loadChildren: () =>
+        import("./mesas/mesas.module").then((m) => m.MesasModule),
+    },
+    {
+      path: "partidos",
+      loadChildren: () =>
+        import("./partidos/partidos.module").then((m) => m.PartidosModule),
+    },
+    {
+      path: "resultados",
+      loadChildren: () =>
+        import("./resultados/resultados.module").then(
+          (m) => m.VotacionesModule
+        ),
+    },
+    {
+      path: "",
+      redirectTo: "home",
+      pathMatch: "full",
+    },  
     {
       path: 'dashboard',
       component: ECommerceComponent,

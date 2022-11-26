@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Candidatos } from '../modelos/candidatos.model';
+import { partidos } from '../modelos/partidos.model';
 
 
 @Injectable({
@@ -28,5 +29,11 @@ export class CandidatosService {
   editar(cedula:string,elCandidato: Candidatos) {
   return this.http.put(`${environment.url_gateway}/candidatos/${cedula}`,
   elCandidato);
+  }
+  asignar(cedula:string,elCandidato: Candidatos, nombre:string,elPartido: partidos) {
+    let bodyString = JSON.stringify({ elCandidato, elPartido});
+    let headers = new HttpHeaders({ 'Content-Type': 'application/JSON' });
+    return this.http.put(`${environment.url_gateway}/candidatos/${cedula}/partido/${nombre}`,
+    bodyString,{headers});
   }
 }

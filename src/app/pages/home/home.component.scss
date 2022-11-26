@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image:url(background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.navbar{
+    width: 90% 90%;
+/*     margin: auto; */
+    padding: 1px 1px;
+/*     background-image:url(registraduria.jpg); */
+    background-size: 20%;
+/*     display: block; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 	10vw;
+    text-align: justify;
+}
+
+.logo{
+    width: 1%;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    
+}
+
+.navbar ul li a{
+    text-decoration: darkblue;
+    color: rgb(251, 249, 249);
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover:after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: auto;
+    top: 50%;
+    text-align: center;
+    transform: translateY(6%);
+    text-align: center;
+    color: rgb(193, 223, 223);
+
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+    color: #f1f4f4;
+    border: #011110;
+    border-radius: 5%;
+}
+
+.content p{
+    margin: 20px auto;
+    font-weight: 1000;
+    line-height:50px;
+    
+}
+
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: black;
+    color: #fff;
+    cursor: pointer;
+}

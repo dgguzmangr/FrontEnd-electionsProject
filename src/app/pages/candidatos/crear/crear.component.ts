@@ -23,16 +23,16 @@ export class CrearComponent implements OnInit {
   constructor(private miServicioCandidato: CandidatosService, private rutaActiva: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.rutaActiva.snapshot.params.cedula) {
+    if (this.rutaActiva.snapshot.params._id) {
       this.modoCreacion = false;
-      this.cedula = this.rutaActiva.snapshot.params.cedula;
+      this.cedula = this.rutaActiva.snapshot.params._id;
       this.getCandidato(this.cedula)
       } else {
       this.modoCreacion = true;
       }
   }
-  getCandidato(cedula: string) {
-    this.miServicioCandidato.getCandidato(cedula).
+  getCandidato(_id: string) {
+    this.miServicioCandidato.getCandidato(_id).
     subscribe(data => {
     this.elCandidato = data;
     });
@@ -54,7 +54,7 @@ export class CrearComponent implements OnInit {
   editar(): void {
     this.intentoEnvio=true;
     if (this.validarDatosCompletos()) {
-      this.miServicioCandidato.editar(this.elCandidato.cedula, this.elCandidato).
+      this.miServicioCandidato.editar(this.elCandidato._id, this.elCandidato).
         subscribe(data => {
           Swal.fire(
             'Actualizado',

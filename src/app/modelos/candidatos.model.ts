@@ -4,4 +4,11 @@ export class Candidatos {
     nombre?:string;
     apellido?:string;
     cedula?:string;
+    partido?:
+    {
+        _id?:string;
+        nombre?:string;
+        lema?:string;
+    }
 }
+
